@@ -1,0 +1,7 @@
+{
+  "id": "email-ingest",
+  "version": 1,
+  "description": "Gmail ingest: webhook/poll → normalize → store → notify (Macro email_service as Flow)",
+  "triggers": [{ "kind": "webhook", "path": "/hooks/gmail" }, { "kind": "schedule", "cron": "*/5 * * * *" }],
+  "nodes": [{ "id": "fetch", "kind": "activity" }, { "id": "normalize", "kind": "activity" }, { "id": "store", "kind": "activity" }, { "id": "fanout", "kind": "activity" }]
+}
